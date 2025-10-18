@@ -26,7 +26,7 @@ FILES=(
 
 # Create zip file
 echo "Creating zip file: $OUTPUT_DIR/$ZIP_NAME"
-zip -r "$OUTPUT_DIR/$ZIP_NAME" "${FILES[@]}" -x "*.DS_Store" "*/.*"
+zip -r "$OUTPUT_DIR/$ZIP_NAME" "${FILES[@]}" -x "*.DS_Store" "*/.git*" "*/node_modules*" "*/.vscode*" "*/.idea*" "*/.*"
 
 if [ $? -eq 0 ]; then
     echo "✅ Package created successfully!"
