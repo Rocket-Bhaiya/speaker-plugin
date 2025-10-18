@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Hinglish Speaker",
+  "version": "1.0.0",
+  "description": "Read selected text in Indian Hinglish using Web Speech API",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["browser-polyfill.js", "content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "commands": {
+    "speak-selected-text": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Speak selected text"
+    }
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Hinglish Speaker"
+  }
+}
